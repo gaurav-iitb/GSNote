@@ -1,0 +1,25 @@
+.home {
+    -webkit-user-drag: none;
+    position: absolute;
+}
+#canvas{
+    touch-action: none;
+}
+.picker{
+    width: 10px;
+    height: 10px;
+}
+.color-pick{
+    /* background-color: black; */
+    width: 30px;
+    height: 30px;
+    margin-top: -10px;
+    margin-left: 15px;
+    border-radius: 50%;
+}
+.main-picker{
+    /* margin-left: auto; */
+    margin-right: 10rem;
+    width: 456px;
+    height: 728px;
+}
