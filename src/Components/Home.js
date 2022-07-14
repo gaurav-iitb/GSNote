@@ -107,30 +107,7 @@ function getSvgPathFromStroke(stroke) {
   return d.join(" ");
 }
 
-function drawElement(roughCanvas, context, element) {
-  switch (element.cursortype) {
-    case "line":
-    case "rectangle":
-    case "circle":
-      roughCanvas.draw(element.roughElement);
-      break;
-    case "pencil":
-      const myStroke = getSvgPathFromStroke(
-        getStroke(element.points, { size: 8 })
-      );
-      context.fill(new Path2D(myStroke));
-      break;
-    case "text":
-      context.textBaseline = "top";
-      // context.font = "24px 'Monaco', monospace";
-      context.font = "24px 'Gochi Hand', monospace";
-      // context.font = "24px 'Patrick Hand SC', monospace";
-      context.fillText(element.text, element.x1, element.y1);
-      break;
-    default:
-      throw new Error(`type not recognized: ${element.cursortype}`);
-  }
-}
+
 
 const adjustmentRequired = (cursortype) =>
   ["line", "rectangle"].includes[cursortype];
@@ -157,6 +134,34 @@ function Home() {
   // const [activecolor,setactivecolor] = useState("black")
   // console.log(color)
 
+  function drawElement(roughCanvas, context, element) {
+    switch (element.cursortype) {
+      case "line":
+      case "rectangle":
+      case "circle":
+        roughCanvas.draw(element.roughElement);
+        break;
+      case "pencil":
+        const myStroke = getSvgPathFromStroke(
+          getStroke(element.points, { size: 8 })
+        );
+        
+        context.fillStyle=color.hex;
+        context.fill(new Path2D(myStroke));
+        break;
+      case "text":
+        context.textBaseline = "top";
+        // context.font = "24px 'Monaco', monospace";
+        context.font = "24px 'Gochi Hand', monospace";
+        // context.font = "24px 'Patrick Hand SC', monospace";
+        context.fillStyle=color.hex;
+        context.fillText(element.text, element.x1, element.y1);
+        break;
+      default:
+        throw new Error(`type not recognized: ${element.cursortype}`);
+    }
+  }
+
   const generator = rough.generator();
 
   useEffect(() => {
@@ -181,14 +186,27 @@ function Home() {
 
   function createelement(id, x1, y1, x2, y2, cursortype, roughElement) {
     if (cursortype === "rectangle") {
-      roughElement = generator.rectangle(x1, y1, x2 - x1, y2 - y1);
+      roughElement = generator.rectangle(x1, y1, x2 - x1, y2 - y1, {
+        roughness: 0,
+        stroke: color.hex,
+        strokeWidth: 3,
+      });
     } else if (cursortype === "line") {
-      roughElement = generator.line(x1, y1, x2, y2);
+      roughElement = generator.line(x1, y1, x2, y2, {
+        roughness: 0,
+        stroke: color.hex,
+        strokeWidth: 3,
+      });
     } else if (cursortype === "circle") {
       roughElement = generator.circle(
         x1,
         y1,
-        2 * Math.sqrt(Math.pow(x1 - x2, 2) + Math.pow(y1 - y2, 2))
+        (2 *Math.sqrt(Math.pow(x1 - x2, 2) + Math.pow(y1 - y2, 2))), 
+          {
+            roughness: 0,
+            stroke: color.hex,
+            strokeWidth: 3,
+          }
       );
     } else if (cursortype === "pencil") {
       return { id, cursortype, points: [{ x: x1, y: y1 }] };
@@ -591,6 +609,7 @@ function Home() {
           onBlur={handleblur}
           className="txtarea"
           style={{
+            color: color.hex,
             position: "fixed",
             top: SelectedElement.y1 - 5,
             left: SelectedElement.x1,
