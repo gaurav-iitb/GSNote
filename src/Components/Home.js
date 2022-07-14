@@ -128,7 +128,7 @@ function Home() {
   const [SelectedElement, SetSelectedElement] = useState(null);
   const [switchon, setswitchon] = useState(false);
   const textAreaRef = useRef();
-  const [color, setColor] = useColor("hex", "#121212");
+  const [color, setColor] = useColor("hex", "#7b03fc");
   // const [activecolor,setactivecolor] = useState("black")
   // console.log(color)
 

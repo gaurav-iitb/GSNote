@@ -103,35 +103,89 @@ function Navbar(props) {
     <>
       <div className="upperdiv">Welcome to GSNote!!</div>
       <div className="seconddiv">
-        <i
-          onClick={selectcall}
-          style={{ fontSize: "35px" }}
-          className="bi bi-arrows-move"
-        ></i>
-        <FontAwesomeIcon
-          onClick={pencall}
-          style={{ fontSize: "35px" }}
-          icon={faPencil}
-        />
-
-        <i
-          onClick={linecall}
-          className="bi bi-slash"
-          style={{ fontSize: "60px", marginLeft: "-20px" }}
-        ></i>
-        <i
-          className="bi bi-fonts"
-          onClick={textcall}
-          style={{ fontSize: "42px", marginLeft: "-20px" }}
-        ></i>
-
-        <i
-          onClick={rectcall}
-          className="bi bi-square"
-          style={{ fontWeight: "bold" }}
-        ></i>
-        <i onClick={circcall} className="bi bi-circle"></i>
-        <FontAwesomeIcon onClick={deletecall} icon={faTrash} />
+        {select ? (
+          <i
+            onClick={selectcall}
+            style={{ fontSize: "35px", color: "white" }}
+            className="bi bi-arrows-move"
+          ></i>
+        ) : (
+          <i
+            onClick={selectcall}
+            style={{ fontSize: "35px" }}
+            className="bi bi-arrows-move"
+          ></i>
+        )}
+        {pen ? (
+          <FontAwesomeIcon
+            onClick={pencall}
+            style={{ fontSize: "35px", color: "white" }}
+            icon={faPencil}
+          />
+        ) : (
+          <FontAwesomeIcon
+            onClick={pencall}
+            style={{ fontSize: "35px" }}
+            icon={faPencil}
+          />
+        )}
+        {line ? (
+          <i
+            onClick={linecall}
+            className="bi bi-slash"
+            style={{ fontSize: "60px", marginLeft: "-20px", color: "white" }}
+          ></i>
+        ) : (
+          <i
+            onClick={linecall}
+            className="bi bi-slash"
+            style={{ fontSize: "60px", marginLeft: "-20px" }}
+          ></i>
+        )}
+        {text ? (
+          <i
+            className="bi bi-fonts"
+            onClick={textcall}
+            style={{ fontSize: "42px", marginLeft: "-20px", color: "white" }}
+          />
+        ) : (
+          <i
+            className="bi bi-fonts"
+            onClick={textcall}
+            style={{ fontSize: "42px", marginLeft: "-20px" }}
+          />
+        )}
+        {rect ? (
+          <i
+            onClick={rectcall}
+            className="bi bi-square"
+            style={{ fontWeight: "bold", color: "white" }}
+          />
+        ) : (
+          <i
+            onClick={rectcall}
+            className="bi bi-square"
+            style={{ fontWeight: "bold" }}
+          />
+        )}
+        {circ ? (
+          <i
+            onClick={circcall}
+            style={{ color: "white" }}
+            className="bi bi-circle"
+          />
+        ) : (
+          <i onClick={circcall} className="bi bi-circle" />
+        )}
+        {Delete ? (
+          <FontAwesomeIcon
+            onClick={deletecall}
+            style={{ color: "white" }}
+            icon={faTrash}
+          />
+        ) : (
+          <FontAwesomeIcon onClick={deletecall} icon={faTrash} />
+        )}
       </div>
     </>
   );
