@@ -601,7 +601,7 @@ function Home() {
             {switchon && (
               <div className="main-picker">
                 <ColorPicker
-                  width={456}
+                  width={window.innerWidth < 456 ? window.innerWidth-50 : 456}
                   height={228}
                   color={color}
                   onChange={setColor}

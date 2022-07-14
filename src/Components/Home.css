@@ -8,9 +8,12 @@
 .picker{
     width: 10px;
     height: 10px;
+    /* display: flex; */
+    /* flex-direction: column; */
 }
 .color-pick{
     /* background-color: black; */
+    /* display: inline-block; */
     width: 30px;
     height: 30px;
     margin-top: -10px;
@@ -18,8 +21,7 @@
     border-radius: 50%;
 }
 .main-picker{
-    /* margin-left: auto; */
-    margin-right: 10rem;
+    margin-left: -13rem;
     width: 456px;
     height: 728px;
 }
