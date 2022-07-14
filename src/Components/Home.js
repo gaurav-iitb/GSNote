@@ -107,8 +107,6 @@ function getSvgPathFromStroke(stroke) {
   return d.join(" ");
 }
 
-
-
 const adjustmentRequired = (cursortype) =>
   ["line", "rectangle"].includes[cursortype];
 
@@ -145,8 +143,8 @@ function Home() {
         const myStroke = getSvgPathFromStroke(
           getStroke(element.points, { size: 8 })
         );
-        
-        context.fillStyle=color.hex;
+
+        context.fillStyle = element.stylecolor;
         context.fill(new Path2D(myStroke));
         break;
       case "text":
@@ -154,7 +152,7 @@ function Home() {
         // context.font = "24px 'Monaco', monospace";
         context.font = "24px 'Gochi Hand', monospace";
         // context.font = "24px 'Patrick Hand SC', monospace";
-        context.fillStyle=color.hex;
+        context.fillStyle = element.stylecolor;
         context.fillText(element.text, element.x1, element.y1);
         break;
       default:
@@ -201,17 +199,31 @@ function Home() {
       roughElement = generator.circle(
         x1,
         y1,
-        (2 *Math.sqrt(Math.pow(x1 - x2, 2) + Math.pow(y1 - y2, 2))), 
-          {
-            roughness: 0,
-            stroke: color.hex,
-            strokeWidth: 3,
-          }
+        2 * Math.sqrt(Math.pow(x1 - x2, 2) + Math.pow(y1 - y2, 2)),
+        {
+          roughness: 0,
+          stroke: color.hex,
+          strokeWidth: 3,
+        }
       );
     } else if (cursortype === "pencil") {
-      return { id, cursortype, points: [{ x: x1, y: y1 }] };
+      return {
+        id,
+        cursortype,
+        points: [{ x: x1, y: y1 }],
+        stylecolor: color.hex,
+      };
     } else if (cursortype === "text") {
-      return { id, cursortype, x1, y1, x2, y2, text: "" };
+      return {
+        id,
+        cursortype,
+        x1,
+        y1,
+        x2,
+        y2,
+        text: "",
+        stylecolor: color.hex,
+      };
     } else {
       throw new Error(`type not recognized: ${cursortype}`);
     }
