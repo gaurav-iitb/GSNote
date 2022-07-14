@@ -149,7 +149,6 @@ function Home() {
         break;
       case "text":
         context.textBaseline = "top";
-        // context.font = "24px 'Monaco', monospace";
         context.font = "24px 'Gochi Hand', monospace";
         // context.font = "24px 'Patrick Hand SC', monospace";
         context.fillStyle = element.stylecolor;
