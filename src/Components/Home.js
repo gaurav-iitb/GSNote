@@ -5,7 +5,6 @@ import Navbar from "./Navbar";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "/node_modules/font-awesome/css/font-awesome.min.css";
 import { faUndo, faRedo } from "@fortawesome/free-solid-svg-icons";
-import { act } from "react-dom/test-utils";
 import "./Home.css";
 import { ColorPicker, useColor } from "react-color-palette";
 import "react-color-palette/lib/css/styles.css";
@@ -248,6 +247,7 @@ function Home() {
     return Math.abs(val) < maxdist ? "inside" : null;
   }
 
+  // main part
   function positionWithinElement(x, y, element) {
     const { cursortype, x1, y1, x2, y2 } = element;
     if (cursortype === "rectangle") {
@@ -312,7 +312,6 @@ function Home() {
           SetSelectedElement({ ...element1, offsetx, offsety });
         }
         SetElements((prevstate) => prevstate);
-        // SetSelectedElement(element1);
 
         if (element1.position === "inside") {
           Setaction("moving");

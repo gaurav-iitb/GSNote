@@ -2,8 +2,6 @@ import React, { useState, useLayoutEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "/node_modules/font-awesome/css/font-awesome.min.css";
 import {
-  faUndo,
-  faRedo,
   faPencil,
   faTrash,
 } from "@fortawesome/free-solid-svg-icons";
