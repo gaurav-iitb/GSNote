@@ -8,6 +8,7 @@ import { faUndo, faRedo } from "@fortawesome/free-solid-svg-icons";
 import "./Home.css";
 import { ColorPicker, useColor } from "react-color-palette";
 import "react-color-palette/lib/css/styles.css";
+import transition from "../transition";
 
 function adjustElementCoordinates(element) {
   const { cursortype, x1, y1, x2, y2 } = element;
@@ -683,4 +684,4 @@ function Home() {
   );
 }
 
-export default Home;
+export default transition(Home);

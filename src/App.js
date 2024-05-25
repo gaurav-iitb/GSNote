@@ -1,17 +1,20 @@
 import "./App.css";
 import Home from "./Components/Home";
-import MainPage from "./Components/MainPage";
+import LandingPage from "./Components/LandingPage";
 import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
+import { AnimatePresence } from "framer-motion";
 
 function App() {
   return (
     <>
-      <Router>
-        <Routes>
-          <Route path="/" exact element={<Home />} />
-          <Route path="/mainPage" element={<MainPage />} />
-        </Routes>
-      </Router>
+      <AnimatePresence mode="wait">
+        <Router>
+          <Routes>
+            <Route path="/note" exact element={<Home />} />
+            <Route path="/" element={<LandingPage />} />
+          </Routes>
+        </Router>
+      </AnimatePresence>
       {/* <Home /> */}
     </>
   );

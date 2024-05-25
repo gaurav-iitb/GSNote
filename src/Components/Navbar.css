@@ -32,9 +32,9 @@
   width: 45px !important;
   height: 45px !important;
 }
-@media screen and (min-device-width: 0px) and (max-device-width: 768px) { 
-  .seconddiv{
-    width: 100%;
+@media screen and (min-device-width: 0px) and (max-device-width: 600px) { 
+  .alignRow{
+    flex-direction: column;
   }
 }
 .bi::before {
