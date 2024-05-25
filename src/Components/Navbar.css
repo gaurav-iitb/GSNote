@@ -1,28 +1,36 @@
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css");
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
 .upperdiv {
   width: 100vw;
-  height: 50px;
-  background-color: orchid;
   text-align: center;
-  vertical-align: middle;
-  font-size: 30px;
-  font-weight: 500;
-  color: white;
 }
-.seconddiv {
-  width: 40%;
-  border-radius: 7px;
-  height: 40px;
-  margin-left: auto;
-  margin-right: auto;
-  background-color: rgb(37, 192, 212);
-  text-align: center;
-  vertical-align: middle;
-  font-size: 30px;
-  color: rgb(44, 36, 35);
+.indie-flower-regular {
+  font-family: "Indie Flower", cursive;
+  font-weight: 600;
+  color: #FFFF00;
+  font-style: normal;
+  font-size: calc(1.375rem + 1.5vw);
+  flex: 1;
+  margin: 0;
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: center;
+}
+.alignRow{
+  display: flex;
+  justify-content: space-around;
+}
+.active, .inactive:hover{
+  background-color: #e0e0e0 !important;
+  color: black !important;
+  width: 45px !important;
+  height: 45px !important;
+}
+.inactive{
+  background-color: black !important;
+  color: #e0e0e0 !important;
+  width: 45px !important;
+  height: 45px !important;
 }
 @media screen and (min-device-width: 0px) and (max-device-width: 768px) { 
   .seconddiv{

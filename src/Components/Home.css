@@ -1,27 +1,40 @@
-.home {
+/* .home {
     -webkit-user-drag: none;
     position: absolute;
+    overflow-x: hidden;
+    overflow-y: hidden;
+} */
+.home {
+  -ms-overflow-style: none; /* for Internet Explorer, Edge */
+  scrollbar-width: none; /* for Firefox */
+  overflow: hidden;
+
 }
-#canvas{
-    touch-action: none;
+.home::-webkit-scrollbar {
+  display: none; /* for Chrome, Safari, and Opera */
 }
-.picker{
-    width: 10px;
-    height: 10px;
-    /* display: flex; */
-    /* flex-direction: column; */
+#canvas {
+  touch-action: none;
+  background-color: black;
 }
-.color-pick{
-    /* background-color: black; */
-    /* display: inline-block; */
-    width: 30px;
-    height: 30px;
-    margin-top: -10px;
-    margin-left: 15px;
-    border-radius: 50%;
+.picker {
+  width: 25px;
+  height: 25px;
+  /* display: flex; */
+  /* flex-direction: column; */
 }
-.main-picker{
-    margin-left: -13rem;
-    width: 456px;
-    height: 728px;
+.color-pick {
+  /* background-color: black; */
+  /* display: inline-block; */
+  width: 25px;
+  height: 25px;
+  /* margin-top: -10px;
+    margin-left: 15px; */
+  border-radius: 50%;
+}
+.main-picker {
+  margin-left: -13rem;
+  margin-top: 1rem;
+  width: 456px;
+  height: 728px;
 }

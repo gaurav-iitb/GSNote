@@ -109,14 +109,33 @@ function getSvgPathFromStroke(stroke) {
 const adjustmentRequired = (cursortype) =>
   ["line", "rectangle"].includes[cursortype];
 
+function drawBlackBackground(canvas) {
+  var context = canvas.getContext("2d");
+  context.save();
+  context.globalCompositeOperation = 'destination-over'; // Draw the background behind existing content
+  context.fillStyle = "#000000"; // Black background
+  context.fillRect(0, 0, canvas.width, canvas.height);
+  context.restore();
+}
+
 function downloadhandler() {
   var canvas = document.getElementById("canvas");
+  drawBlackBackground(canvas);
   var image = canvas
     .toDataURL("image/png")
     .replace("image/png", "image/octet-stream"); // here is the most important part because if you dont replace you will get a DOM 18 exception.
   //   var dataURL = canvas.toDataURL();
-  var newTab = window.open("about:blank");
-  newTab.window.location.href = image;
+  // var newTab = window.open("about:blank");
+  // newTab.window.location.href = image;
+
+  let customFilename = 'download.png';
+
+  var link = document.createElement('a');
+  link.href = image;
+  link.download = customFilename;
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
   // newTab.document.write("<img src='" + dataURL + "' alt='from canvas'/>");
 }
 
@@ -573,10 +592,19 @@ function Home() {
         onDragStart={(e) => {
           e.preventDefault();
         }}
-        style={{ position: "fixed", backgroundColor: "#f0ff69" }}
+        style={{ position: "fixed", backgroundColor: "#333" }}
       >
-        <Navbar getval={updater} />
-        <div
+        <Navbar
+          getval={updater}
+          undohandler={undohandler}
+          redohandler={redohandler}
+          downloadhandler={downloadhandler}
+          setswitchon={setswitchon}
+          switchon={switchon}
+          color={color}
+          setColor={setColor}
+        />
+        {/* <div
           style={{
             justifyContent: "center",
             alignItems: "center",
@@ -600,7 +628,7 @@ function Home() {
             {switchon && (
               <div className="main-picker">
                 <ColorPicker
-                  width={window.innerWidth < 456 ? window.innerWidth-50 : 456}
+                  width={window.innerWidth < 456 ? window.innerWidth - 50 : 456}
                   height={228}
                   color={color}
                   onChange={setColor}
@@ -610,7 +638,7 @@ function Home() {
               </div>
             )}
           </div>
-        </div>
+        </div> */}
       </div>
       {action === "writing" && (
         <textarea
