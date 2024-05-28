@@ -15,8 +15,8 @@ To set up the project locally, follow these steps:
 1. Clone the repository from [gaurav-iitb/gs-note](https://github.com/gauurav-iitb/gs-note.git)
 
 ```bash
-git clone https://github.com/gauurav-iitb/gs-note.git
-cd gs-note
+git clone https://github.com/gaurav-iitb/GSNote.git
+cd GSNote
 ```
 2. Install dependencies (only the first time)
 
