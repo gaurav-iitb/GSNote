@@ -1,11 +1,8 @@
 import React, { useState, useLayoutEffect } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "/node_modules/font-awesome/css/font-awesome.min.css";
-import { faPencil, faTrash } from "@fortawesome/free-solid-svg-icons";
 import "./Navbar.css";
 import Box from "@mui/material/Box";
 import Fab from "@mui/material/Fab";
-import AddIcon from "@mui/icons-material/Add";
 import EditIcon from "@mui/icons-material/Edit";
 import TextFormatIcon from "@mui/icons-material/TextFormat";
 import PanToolIcon from "@mui/icons-material/PanTool";
@@ -15,10 +12,7 @@ import DeleteOutlineOutlinedIcon from "@mui/icons-material/DeleteOutlineOutlined
 import UndoIcon from "@mui/icons-material/Undo";
 import RedoIcon from "@mui/icons-material/Redo";
 import CloudDownloadIcon from "@mui/icons-material/CloudDownload";
-import { ColorPicker, useColor } from "react-color-palette";
-
-import FavoriteIcon from "@mui/icons-material/Favorite";
-import NavigationIcon from "@mui/icons-material/Navigation";
+import { ColorPicker } from "react-color-palette";
 
 function Navbar({
   getval,
@@ -125,13 +119,14 @@ function Navbar({
   return (
     <div className="upperdiv">
       <div className="alignRow">
-        <h1 className="indie-flower-regular">GS Note</h1>
-        <Box style={{flex: 1}} sx={{ "& > :not(style)": { m: 1 } }}>
+        <h1 className="indie-flower-regular"><a href="/">GS Note</a></h1>
+        <Box className="box1" style={{flex: 1}} sx={{ "& > :not(style)": { m: 1 } }}>
           <Fab
             className={select ? "active" : "inactive"}
             onClick={selectcall}
             color="extended"
             aria-label="add"
+            id="hand"
           >
             <PanToolIcon />
           </Fab>
@@ -184,7 +179,7 @@ function Navbar({
             <DeleteOutlineOutlinedIcon />
           </Fab>
         </Box>
-        <Box style={{flex: 1}} sx={{ "& > :not(style)": { m: 1 } }}>
+        <Box className="box2" style={{flex: 1}} sx={{ "& > :not(style)": { m: 1 } }}>
           <Fab
             className={"inactive"}
             onClick={undohandler}

@@ -1,15 +1,13 @@
 // src/components/LandingPage.js
 import React from "react";
 import "./LandingPage.css"; // Make sure to create this file for styles
-import Stack from "@mui/material/Stack";
 import Button from "@mui/material/Button";
 import ParticlesComponent from "./particles";
 import transition from "../transition";
 
 const LandingPage = () => {
-
-  function HandleRedirect(){
-    window.location.href = "/note"
+  function HandleRedirect() {
+    window.location.href = "/note";
   }
 
   return (
@@ -28,7 +26,13 @@ const LandingPage = () => {
         towards better organization and enhanced productivity with GS Note
         today!
       </p>
-      <Button onClick={()=>{HandleRedirect()}} className="start_button" variant="outlined">
+      <Button
+        onClick={() => {
+          HandleRedirect();
+        }}
+        className="start_button"
+        variant="outlined"
+      >
         Get Started
       </Button>
     </div>

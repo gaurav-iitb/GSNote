@@ -2,13 +2,13 @@ import { useLayoutEffect, useEffect, useState, useRef } from "react";
 import getStroke from "perfect-freehand";
 import rough from "roughjs/bundled/rough.esm";
 import Navbar from "./Navbar";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "/node_modules/font-awesome/css/font-awesome.min.css";
-import { faUndo, faRedo } from "@fortawesome/free-solid-svg-icons";
 import "./Home.css";
-import { ColorPicker, useColor } from "react-color-palette";
+import {useColor } from "react-color-palette";
 import "react-color-palette/lib/css/styles.css";
 import transition from "../transition";
+import Shepherd from "shepherd.js";
+import { newSteps } from "../steps";
 
 function adjustElementCoordinates(element) {
   const { cursortype, x1, y1, x2, y2 } = element;
@@ -137,7 +137,6 @@ function downloadhandler() {
   document.body.appendChild(link);
   link.click();
   document.body.removeChild(link);
-  // newTab.document.write("<img src='" + dataURL + "' alt='from canvas'/>");
 }
 
 function Home() {
@@ -148,8 +147,20 @@ function Home() {
   const [switchon, setswitchon] = useState(false);
   const textAreaRef = useRef();
   const [color, setColor] = useColor("hex", "#7b03fc");
-  // const [activecolor,setactivecolor] = useState("black")
-  // console.log(color)
+
+  const tour = new Shepherd.Tour({
+    useModalOverlay: true,
+    defaultStepOptions: {
+      classes: "shadow-md bg-purple-dark",
+      scrollTo: true,
+    },
+  });
+
+  useEffect(() => {
+    tour.addSteps(newSteps)
+    tour.start();
+  }, []);
+  
 
   function drawElement(roughCanvas, context, element) {
     switch (element.cursortype) {
@@ -287,7 +298,6 @@ function Home() {
       const b = { x: x2, y: y2 };
       const c = { x: x, y: y };
       var dist = distance(a, c) - distance(a, b);
-      var dist1 = distance(a, b) - distance(a, c);
       const boundary = dist >= 0 && dist <= 7 ? "bound" : null;
       const inside = dist < 0 ? "inside" : null;
       return boundary || inside;
@@ -605,41 +615,7 @@ function Home() {
           color={color}
           setColor={setColor}
         />
-        {/* <div
-          style={{
-            justifyContent: "center",
-            alignItems: "center",
-            fontSize: "23px",
-            display: "flex",
-          }}
-        >
-          <FontAwesomeIcon onClick={undohandler} icon={faUndo} />
-          <FontAwesomeIcon onClick={redohandler} icon={faRedo} />
-          <i
-            onClick={downloadhandler}
-            style={{ marginLeft: "20px" }}
-            className="bi bi-cloud-download-fill"
-          ></i>
-          <div className="picker">
-            <div
-              className="color-pick"
-              onClick={() => setswitchon(!switchon)}
-              style={{ backgroundColor: color.hex }}
-            />
-            {switchon && (
-              <div className="main-picker">
-                <ColorPicker
-                  width={window.innerWidth < 456 ? window.innerWidth - 50 : 456}
-                  height={228}
-                  color={color}
-                  onChange={setColor}
-                  hideHSV
-                  dark
-                />
-              </div>
-            )}
-          </div>
-        </div> */}
+
       </div>
       {action === "writing" && (
         <textarea
