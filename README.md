@@ -5,8 +5,12 @@ GS Note is a note-taking web application built using React, designed to help use
 Visit the deployed project at [click here](https://gs-note.vercel.app/)
 
 ## Video Demo
-[Watch the video on YouTube](https://www.youtube.com/watch?v=SO5iSBL9om4)
-[![Watch the video](https://img.youtube.com/vi/SO5iSBL9om4/maxresdefault.jpg)](https://www.youtube.com/watch?v=SO5iSBL9om4)
+[Watch the video on YouTube](https://www.youtube.com/watch?v=DOykGyW0zTg)
+
+
+https://github.com/gaurav-iitb/GSNote/assets/85782532/ed8db15a-ad9f-493a-96be-bd3160057bad
+
+
 
 ## Installation
 
