@@ -16,7 +16,7 @@ https://github.com/gaurav-iitb/GSNote/assets/85782532/ed8db15a-ad9f-493a-96be-bd
 
 To set up the project locally, follow these steps:
 
-1. Clone the repository from [gaurav-iitb/gs-note](https://github.com/gauurav-iitb/gs-note.git)
+1. Clone the repository from [gaurav-iitb/GSNote](https://github.com/gaurav-iitb/GSNote.git)
 
 ```bash
 git clone https://github.com/gaurav-iitb/GSNote.git
