@@ -1,6 +1,6 @@
 # GS Note
 
-GS Note is a note-taking web application built using React, designed to help users create, edit, and manage their notes and drawings efficiently. The application features a variety of tools to enhance the note-taking experience, including drawing, text, shapes, and color selection, all integrated with an intuitive user interface.
+GS Note is a note-taking web application built using React, designed to help users create, edit, and manage their notes and drawings efficiently. The application features a variety of tools to enhance the note-taking experience, including drawing, text, shapes, and color selection, all integrated with an intuitive user interface. The app also includes a user guide powered by the Shepherd.js library to help users navigate the features.
 
 Visit the deployed project at [click here](https://gs-note.vercel.app/)
 

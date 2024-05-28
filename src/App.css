@@ -21,3 +21,23 @@ body{
     background: #0f0f0f;
     transform-origin: right;
 }
+
+.shepherd-arrow:before {
+    background: #D9EFFF !important;
+}
+.shepherd-footer, .shepherd-text, .shepherd-header{
+    background: #D9EFFF !important;
+}
+
+.shepherd-button{
+    background: black;
+    color: #0095ff;
+}
+
+.shepherd-button:hover{
+    background-color: #005fa3 !important;
+    color: black !important;
+}
+.shepherd-cancel-icon{
+    color: hsla(0, 100%, 50%, 0.75) !important;
+}
